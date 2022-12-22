@@ -1,6 +1,8 @@
 //go:generate mockgen --destination=./mocks/${GOFILE} --package=mocks --source=${GOFILE}
 package store
 
+var defaultUser string = "defaultUser"
+
 type Repository interface {
 	GetByID(id int) ([]byte, error)
 }
@@ -10,7 +12,6 @@ type storeService struct {
 }
 
 func (s *storeService) RetreiveNameByID(id int) (string, error) {
-	defaultUser := "defaultUser"
 	dataBytes, err := s.store.GetByID(id)
 	if err != nil {
 		return defaultUser, err
