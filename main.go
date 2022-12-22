@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ehrktia/performance-monitor/adapter/http_adapter"
+	"github.com/ehrktia/performance-stats/adapter/http_adapter"
 )
 
 func main() {
