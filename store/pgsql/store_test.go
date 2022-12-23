@@ -38,4 +38,3 @@ func Test_conn_string(t *testing.T) {
 	got := getConnFromEnv()
 	assert.NotEmpty(t, got)
 }
-
