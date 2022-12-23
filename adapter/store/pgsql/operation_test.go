@@ -15,12 +15,12 @@ func Test_validate_query_input(t *testing.T) {
 		{
 			desc: "valid id",
 			inp:  1,
-			want: true,
+			want: false,
 		},
 		{
 			desc: "in valid id",
 			inp:  0,
-			want: false,
+			want: true,
 		},
 	}
 	for _, tc := range tt {

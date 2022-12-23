@@ -5,6 +5,8 @@ var defaultUser string = "defaultUser"
 
 type Repository interface {
 	GetByID(id int) ([]byte, error)
+	PutData() error
+	GetAll() error
 }
 
 type storeService struct {

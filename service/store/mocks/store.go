@@ -33,6 +33,20 @@ func (m *MockRepository) EXPECT() *MockRepositoryMockRecorder {
 	return m.recorder
 }
 
+// GetAll mocks base method.
+func (m *MockRepository) GetAll() error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetAll")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// GetAll indicates an expected call of GetAll.
+func (mr *MockRepositoryMockRecorder) GetAll() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetAll", reflect.TypeOf((*MockRepository)(nil).GetAll))
+}
+
 // GetByID mocks base method.
 func (m *MockRepository) GetByID(id int) ([]byte, error) {
 	m.ctrl.T.Helper()
@@ -46,4 +60,18 @@ func (m *MockRepository) GetByID(id int) ([]byte, error) {
 func (mr *MockRepositoryMockRecorder) GetByID(id interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetByID", reflect.TypeOf((*MockRepository)(nil).GetByID), id)
+}
+
+// PutData mocks base method.
+func (m *MockRepository) PutData() error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "PutData")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// PutData indicates an expected call of PutData.
+func (mr *MockRepositoryMockRecorder) PutData() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PutData", reflect.TypeOf((*MockRepository)(nil).PutData))
 }
