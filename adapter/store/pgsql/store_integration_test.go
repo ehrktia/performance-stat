@@ -1,5 +1,3 @@
-//go:build integration
-
 package pgsql
 
 import (
@@ -66,5 +64,11 @@ func setupEnv(t *testing.T) {
 	os.Setenv(PASSWORD, t.Name())
 	os.Setenv(HOST, t.Name())
 	os.Setenv(DBNAME, t.Name())
+
+}
+
+func Test_operation(t *testing.T) {
+	t.Run("get operation to fetch data based on id", func(t *testing.T) {
+	})
 
 }
