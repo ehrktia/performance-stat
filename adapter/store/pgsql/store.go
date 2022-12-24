@@ -23,7 +23,7 @@ var (
 	DEFAULTDB       = "dev"
 )
 
-type store struct {
+type pgStore struct {
 	connection *sql.DB
 }
 
@@ -55,8 +55,8 @@ func getConnFromEnv() string {
 
 }
 
-func New() (*store, error) {
-	s := &store{}
+func New() (*pgStore, error) {
+	s := &pgStore{}
 	connStr := getConnFromEnv()
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
