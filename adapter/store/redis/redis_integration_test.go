@@ -65,3 +65,16 @@ func Test_operations(t *testing.T) {
 	})
 
 }
+
+func Benchmark_redis_put(b *testing.B) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	newTestConn, err := New(ctx)
+	assert.Nil(b, err)
+	for i := 0; i < b.N; i++ {
+		if err := newTestConn.PutData(); err != nil {
+			b.Fatal(err)
+		}
+
+	}
+}
