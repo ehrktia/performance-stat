@@ -39,10 +39,11 @@ func getURLFromEnv() string {
 }
 
 func New(ctx context.Context) (*redisStore, error) {
-	url:=getURLFromEnv()
+	url := getURLFromEnv()
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:        url,
 		Password:    "",
+		DB:          0,
 		DialTimeout: redis_timeout,
 		ReadTimeout: redis_timeout,
 	})

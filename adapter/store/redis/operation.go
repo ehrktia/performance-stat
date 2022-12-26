@@ -18,10 +18,10 @@ func (r *redisStore) GetByID(id int) ([]byte, error) {
 func (r *redisStore) PutData() error {
 	seedSource := "abcdefghijklmnopqrstuvwxyz0123456789"
 	name := base64.StdEncoding.EncodeToString([]byte(seedSource))
-	for i := 1; i <= 1000; i++ {
+	for i := 1; i <= 10000; i++ {
 		in := strconv.Itoa(i)
 		v := name
-		if _, err := r.rcStore.Set(context.Background(), in, v, 0).Result(); err != nil {
+		if err := r.rcStore.Set(context.Background(), in, v, 0).Err(); err != nil {
 			return err
 		}
 	}

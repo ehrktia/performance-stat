@@ -21,7 +21,7 @@ func buildStatement() string {
 	return fmt.Sprintf("SELECT name from %s where id=$1;", tablename)
 }
 
-func (s *store) GetByID(id int) ([]byte, error) {
+func (s *pgStore) GetByID(id int) ([]byte, error) {
 	if isNotValidID(id) {
 		return nil, ErrInvalidInputID
 	}
@@ -46,7 +46,7 @@ func buildInsertQuery() string {
 
 }
 
-func (s *store) PutData() error {
+func (s *pgStore) PutData() error {
 	stmt := buildInsertQuery()
 	sourceSeed := "abcdefghijklmnopqrstuvwxyz1234567890"
 	name := base64.StdEncoding.EncodeToString([]byte(sourceSeed))
@@ -63,7 +63,7 @@ func buildGetAllStatement() string {
 
 }
 
-func (s *store) GetAll() error {
+func (s *pgStore) GetAll() error {
 	stmt := buildGetAllStatement()
 	_, err := s.connection.Exec(stmt)
 	if err != nil {

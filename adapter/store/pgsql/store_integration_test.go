@@ -70,7 +70,7 @@ func setupEnv(t *testing.T) {
 
 }
 
-func cleanupData(newTestConn *store) {
+func cleanupData(newTestConn *pgStore) {
 	cleanData := fmt.Sprintf("truncate table %s;", "public.test")
 	if _, err := newTestConn.connection.Exec(cleanData); err != nil {
 		panic(err)
